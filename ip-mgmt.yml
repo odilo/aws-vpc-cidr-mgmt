@@ -9,9 +9,6 @@ Parameters:
   OrganizationsId:
     Type: String
     Default: o-kfsxtj8fwl
-  RootOrganizationUnitId:
-    Type: String
-    Default: r-4rhz
   S3CodeBucket:
     Type: String
   FailureAlertEmail:
@@ -113,7 +110,7 @@ Resources:
                     "Resource": "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:*",
                     "Condition": {
                         "ForAnyValue:StringLike": {
-                            "aws:PrincipalOrgPaths": "${OrganizationsId}/${RootOrganizationUnitId}/*"
+                            "aws:PrincipalOrgPaths": "${OrganizationsId}/*"
                         }
                     }
                 }
